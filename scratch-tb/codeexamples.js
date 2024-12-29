@@ -5,11 +5,11 @@
     throw new Error('This Block Utility example must run unsandboxed');
   }
 
-  class BlockUtilityExamples {
+  class CodeExamples {
     getInfo() {
       return {
-        id: 'blockutilityexamples',
-        name: 'BlockUtility Examples',
+        id: 'codeexamples',
+        name: 'CodeExamples 1.0',
         blocks: [
           {
             opcode: 'getSpriteName',
@@ -63,5 +63,5 @@
       return !!variable;
     }
   }
-  Scratch.extensions.register(new BlockUtilityExamples());
+  Scratch.extensions.register(new CodeExamples());
 })(Scratch);
