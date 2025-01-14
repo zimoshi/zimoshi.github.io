@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download SpongeBob Time Card One Eternity Later</title>
 </head>
-  <body>
+<body>
     <iframe frameborder="0" src="https://memes.co.in/embed,1097"></iframe>
     <button id="downloadButton">Download Now</button>
     <script>
@@ -13,11 +13,11 @@
             // Create a temporary anchor element
             const link = document.createElement("a");
 
-            // Set the file URL (can be an absolute or relative URL)
-            link.href = "path-to-your-video/video.mp4"; // Replace with your .mp4 file URL
+            // Set the file URL (relative to the current file)
+            link.href = "./oel.mp4"; // Correct path for the file in the same directory
 
             // Set the download attribute to suggest a file name
-            link.download = "my-video.mp4"; // Replace with the desired file name
+            link.download = "SpongeBobTimeCardOneEternityLater.mp4"; // Desired file name for download
 
             // Append the anchor to the body (optional but necessary for some browsers)
             document.body.appendChild(link);
@@ -27,7 +27,10 @@
 
             // Remove the anchor from the DOM
             document.body.removeChild(link);
+
+            // Redirect to the 'Thanks for Downloading' page
+            window.location.href = "https://zimoshi.github.io/memes/tfd.html";
         });
     </script>
-  </body>
+</body>
 </html>
