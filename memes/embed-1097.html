@@ -1,9 +1,33 @@
-<DOCTYPE html>
-<html>
-  <head>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download SpongeBob Time Card One Eternity Later</title>
+</head>
   <body>
     <iframe frameborder="0" src="https://memes.co.in/embed,1097"></iframe>
-    <button>Download Now</button>
+    <button id="downloadButton">Download Now</button>
+    <script>
+        document.getElementById("downloadButton").addEventListener("click", function () {
+            // Create a temporary anchor element
+            const link = document.createElement("a");
+
+            // Set the file URL (can be an absolute or relative URL)
+            link.href = "path-to-your-video/video.mp4"; // Replace with your .mp4 file URL
+
+            // Set the download attribute to suggest a file name
+            link.download = "my-video.mp4"; // Replace with the desired file name
+
+            // Append the anchor to the body (optional but necessary for some browsers)
+            document.body.appendChild(link);
+
+            // Programmatically click the link to trigger the download
+            link.click();
+
+            // Remove the anchor from the DOM
+            document.body.removeChild(link);
+        });
+    </script>
   </body>
 </html>
