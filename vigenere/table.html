@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vigenere Table</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+    body {
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    table, table td, table th {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+    table td {
+        font-size: 2.9vw;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    table tr td:first-child, table thead td {
+        font-weight: bold;
+        background-color: #eee;
+        
+    }
+    
+    table tr.selected td, table tr td.selected {
+        background-color: yellow;
+    }
+    
+    table td.selected.encrypted {
+        background-color: rgb(167, 235, 162);
+    }
+    </style>
+  </head>
+  <body>
+  
+  <div id="output">
+      
+  </div>
+  <script>
+
+var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+
+var selectRow = function(evt) {
+    var selectedCell = evt.target;
+    var parentRow = selectedCell.parentNode;
+    var parentTbody = parentRow.parentNode;
+    var parentTable = parentTbody.parentNode;
+    // Remove class name from everything relevant
+    var tableCells = parentTable.querySelectorAll("td");
+    for (var i = 0; i < tableCells.length; i++) {
+        tableCells[i].classList.remove("selected");
+        tableCells[i].classList.remove("encrypted");
+    }
+    // Add class name to selected row
+    var selectedRowCells = parentRow.querySelectorAll("td");
+    for (var i = 0; i < selectedRowCells.length; i++) {
+        selectedRowCells[i].classList.add("selected");
+    }
+    var colIndex = selectedCell.getAttribute("data-index");
+    if (colIndex > 0) {
+        // Select the relevant column
+        var bodyRows = parentTable.querySelectorAll("tr");
+        for (var i = 0; i < bodyRows.length; i++) {
+            bodyRows[i].childNodes[colIndex].classList.add("selected");
+        }
+        // Select the exact cell
+        selectedCell.classList.add("encrypted");
+    }
+};
+
+var table = document.createElement("table");
+
+// Header row
+var thead = document.createElement("thead");
+var theadR = document.createElement("tr");
+var hCell = document.createElement("th");
+hCell.innerHTML = " ";
+theadR.appendChild(hCell);
+for (var i = 0; i < alphabet.length; i++) {
+    var hCell = document.createElement("td");
+    hCell.innerHTML = alphabet[i];
+    theadR.appendChild(hCell);
+}
+thead.appendChild(theadR);
+table.appendChild(thead);
+
+// Body Rows
+var tbody = document.createElement("tbody");
+for (var i = 0; i < alphabet.length; i++) {
+    var tbodyR = document.createElement("tr");
+    var rowStart = document.createElement("td");
+    rowStart.innerHTML = alphabet[i];
+    rowStart.addEventListener("mouseover", selectRow);
+    rowStart.addEventListener("click", selectRow);
+    tbodyR.appendChild(rowStart);
+    for (var j = 0; j < alphabet.length; j++) {
+        var rowCell = document.createElement("td");
+        rowCell.innerHTML = alphabet[(j + i) % 26];
+        rowCell.setAttribute("data-index", j + 1);
+        rowCell.addEventListener("mouseover", selectRow);
+        rowCell.addEventListener("click", selectRow);
+        tbodyR.appendChild(rowCell);
+    }
+    tbody.appendChild(tbodyR);
+}
+
+table.appendChild(tbody);
+document.body.appendChild(table);
+
+  </script>
+
+  </body>
+  </html>
