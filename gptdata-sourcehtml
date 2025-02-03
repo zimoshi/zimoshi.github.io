@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        window.location.href = "zimoshi.github.io/gptdata.py";
+      });
+    </script>
+  </body>
+</html>
