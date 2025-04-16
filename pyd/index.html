@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pytecimalthon</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap">
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 0;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+    header {
+      background: #161b22;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid #30363d;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    main {
+      padding: 6rem 2rem 2rem 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    code, pre {
+      background: #161b22;
+      padding: 0.5rem;
+      display: block;
+      overflow-x: auto;
+      border-radius: 6px;
+      margin: 1rem 0;
+      color: #7ee787;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .tag {
+      background: #238636;
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Pytecimalthon <span class="tag">DBR 316</span>
+  </header>
+  <main>
+    <section>
+      <h2>⚙️ What is Pytecimalthon?</h2>
+      <p><strong>Pytecimalthon</strong> is a Python runtime that fixes floating-point math using <strong>DBR 316</strong>: Decimal Binary Rule 316. It transforms all floating-point numbers into precise decimals.</p>
+    </section>
+
+    <section>
+      <h2>✨ Why?</h2>
+      <p>Because <code>0.1 + 0.2</code> should equal <code>0.3</code>. Pytecimalthon fixes the classic floating-point bug by rewriting your code and enforcing <code>decimal.Decimal</code> for accuracy.</p>
+    </section>
+
+    <section>
+      <h2>🚀 Try It</h2>
+      <pre><code># test.pyd
+print(0.1 + 0.2)</code></pre>
+      <pre><code>$ pyd3 test.pyd
+0.3</code></pre>
+    </section>
+
+    <section>
+      <h2>📦 Install</h2>
+      <pre><code>git clone https://github.com/zimoshi/pytecimalthon
+cd pytecimalthon
+sh setup.sh</code></pre>
+    </section>
+
+    <section>
+      <h2>🔗 GitHub</h2>
+      <p><a href="https://github.com/zimoshi/pytecimalthon" target="_blank">github.com/zimoshi/pytecimalthon</a></p>
+    </section>
+  </main>
+</body>
+</html>
