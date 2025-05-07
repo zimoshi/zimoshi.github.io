@@ -38,11 +38,32 @@
   <h1>✨ Spwemble ✨</h1>
   <p>Twype youw text bewow and spwemblify it!</p>
   <textarea id="input" placeholder="Type yuw text hewe~"></textarea><br>
-  <button onclick="spwemble()">Spwemble!</button>
+<!--   <button onclick="spwemble()">Spwemble!</button> -->
+  <p><em>Spwemblify auto-updates as you type!</em></p>
   <h2>🌀 Output:</h2>
   <textarea id="output" readonly></textarea>
 
   <script>
+  function spwembleLive(text) {
+    let t = text;
+    const rules = [
+      [/th/gi, "tw"],
+      [/r/gi, "w"],
+      [/l/gi, "w"],
+      [/s/gi, "sh"],
+      [/n/gi, "ny"],
+      [/ove/gi, "uv"]
+    ];
+    for (const [pattern, replacement] of rules) {
+      t = t.replace(pattern, replacement);
+    }
+    document.getElementById("output").value = t;
+  }
+
+  document.getElementById("input").addEventListener("input", (e) => {
+    spwembleLive(e.target.value);
+  });
+  
     function spwemble() {
       const text = document.getElementById("input").value;
       let t = text;
