@@ -1,0 +1,10 @@
+.boxed-paragraph {
+  border: 2px solid #333; /* Adds a 2px solid border in a dark gray color */
+  padding: 15px; /* Creates internal spacing between the text and the border */
+  margin: 20px; /* Creates external spacing around the box */
+  background-color: #f0f0f0; /* Sets a light gray background color */
+  border-radius: 8px; /* Rounds the corners of the box */
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+button{background-color:#007BFF;color:white;border:none;border-radius:5px;cursor:pointer;transition:background-color 0.3s ease;}button:hover{background-color:#0056b3;}

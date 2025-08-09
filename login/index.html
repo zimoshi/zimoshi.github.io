@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+      <style>
+      input {
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none; /* Removes default browser outline */
+}
+    </style>
+    <style>button{background-color:#007BFF;color:white;border:none;border-radius:5px;cursor:pointer;transition:background-color 0.3s ease; height: 30px; width:40px;}button:hover{background-color:#0056b3;}</style>
+  <body>
+    <h1 style="font-family: sans-serif;">Welcome to the log in screen</h1>
+    <input placeholder="Enter name..." id="in">
+    <button onclick="go()">OK</button>
+    <script>
+      function go() {
+        const input = document.getElementById("in");
+        if (input.value === "Xiaodi") {
+          window.location.href = "screen.html";
+        }
+      }
+    </script>
+  </body>
+</html>
