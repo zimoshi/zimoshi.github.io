@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+        const fileUrl = 'boxlite.zip';
+        const a = document.createElement('a');
+        a.href = fileUrl;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+  });
+</script> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download Boxlite</title>
+</head>
+<body>
+  <a href="boxlite.zip" download="boxlite.zip">If the download doesn't start, click here</a>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fileUrl = "boxlite.zip";
+      const a = document.createElement("a");
+      a.href = fileUrl;
+      a.download = "boxlite.zip";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      setTimeout(() => {
+        a.click();
+        document.body.removeChild(a);
+      }, 100); 
+    });
+  </script>
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download Boxlite</title>
+</head>
+<body>
+  <p id="download-msg">
+    Your download should start automatically.  
+    If not, <a href="boxlite.zip" download="boxlite.zip">click here</a>.
+  </p>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fileUrl = "boxlite.zip";
+      const a = document.createElement("a");
+      a.href = fileUrl;
+      a.download = "boxlite.zip";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      setTimeout(() => {
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => window.history.back(), 500);
+        setTimeout(() => window.close(), 500);
+      }, 100);
+    });
+  </script>
+</body>
+</html>
