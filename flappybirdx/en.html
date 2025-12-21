@@ -10,80 +10,86 @@
   <meta property="og:description" content="A tiny, window-less Flappy Bird clone for macOS. Install with one command." />
   <meta property="og:type" content="website" />
 
-  <style>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #0f172a;
+    --muted: #475569;
+    --card: #f1f5f9;
+    --code-bg: #0f172a;
+    --code-fg: #a5f3fc;
+    --accent: #22c55e;
+    --link: #2563eb;
+  }
+
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0f1220;
-      --fg: #eaeaf0;
-      --muted: #a0a4c0;
-      --accent: #5eead4;
-      --card: #181c36;
-      --code: #0b0e1a;
+      --bg: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --card: #020617;
+      --code-bg: #020617;
+      --code-fg: #a5f3fc;
+      --accent: #22c55e;
+      --link: #93c5fd;
     }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f7f8fc;
-        --fg: #0b0d1a;
-        --muted: #555;
-        --card: #ffffff;
-        --code: #f0f2f8;
-      }
-    }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 820px;
-      margin: auto;
-      padding: 48px 20px;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.3em;
-    }
-    h2 {
-      margin-top: 2.5em;
-    }
-    p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 24px;
-      margin-top: 24px;
-    }
-    pre {
-      background: var(--code);
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 0.95rem;
-    }
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    footer {
-      margin-top: 80px;
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-    }
-  </style>
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont,
+      "PingFang SC", "PingFang TC",
+      "Microsoft YaHei", "Microsoft JhengHei",
+      "Noto Sans", sans-serif;
+
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: auto;
+    padding: 48px 24px;
+  }
+
+  h1, h2 {
+    color: var(--fg);
+  }
+
+  p, li {
+    color: var(--muted);
+  }
+
+  pre, code {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 18px;
+    background: var(--accent);
+    color: #052e16;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  footer {
+    margin-top: 64px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+</style>
 </head>
 
 <body>
