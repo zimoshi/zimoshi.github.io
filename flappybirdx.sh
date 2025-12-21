@@ -237,8 +237,7 @@ iVBORw0KGgoAAAANSUhEUgAAAPQAAAXbCAYAAAAI7ZO6AACAAElEQVR42uzdWXhVZbb/+3117s7NuTl3
 EOF
 fi
 ICON_URL="https://zimoshi.github.io/flappybird.icns"
-ICON_FILE="FlappyBirdX.icns"
-
+ICON_FILE="$(mktemp -t flappybirdx_icon).icns"
 echo "▶ Fetching app icon..."
 curl -fsSL "$ICON_URL" -o "$ICON_FILE"
 echo "▶ Building ${APP_NAME}..."
@@ -246,7 +245,7 @@ rm -rf "$DIST_DIR" "$BUILD_DIR" "${APP_NAME}.spec"
 pyinstaller \
   --windowed \
   --name "$APP_NAME" \
-  --icon "FlappyBirdX.icns" \
+  --icon "$ICON_FILE" \
   --add-data "assets:assets" \
   "$PY_FILE"
 echo "▶ Installing to /Applications..."
