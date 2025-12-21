@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FlappyBirdX</title>
+  <meta http-equiv="refresh" content="0;url=index.html">
+  <script>
+    (function () {
+      const lang =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        navigator.userLanguage ||
+        "en";
+
+      const isChinese =
+        lang.startsWith("zh") ||
+        lang.startsWith("zh-CN") ||
+        lang.startsWith("zh-TW") ||
+        lang.startsWith("zh-HK");
+
+      const target = isChinese ? "cn.html" : "en.html";
+
+      // Prevent redirect loop
+      if (!location.pathname.endsWith(target)) {
+        location.replace(target);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    <p>
+      Please enable JavaScript or choose manually:
+      <br />
+      <a href="en.html">English</a> |
+      <a href="cn.html">中文</a>
+    </p>
+  </noscript>
+</body>
+</html>
