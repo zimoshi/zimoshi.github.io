@@ -248,11 +248,19 @@ pyinstaller \
   --icon "$ICON_FILE" \
   --add-data "assets:assets" \
   "$PY_FILE"
-echo "▶ Installing to /Applications..."
+# echo "▶ Installing to /Applications..."
 # <2:start> fallback to sudo if we don't have perms
-rm -rf "$TARGET" || sudo rm -rf "$TARGET"
-cp -R "${DIST_DIR}/${APP_NAME}.app" /Applications/ || sudo cp -R "${DIST_DIR}/${APP_NAME}.app" /Applications/
-xattr -dr com.apple.quarantine "$TARGET" || sudo xattr -dr com.apple.quarantine "$TARGET"
+# rm -rf "$TARGET" || sudo rm -rf "$TARGET"
+# cp -R "${DIST_DIR}/${APP_NAME}.app" /Applications/ || sudo cp -R "${DIST_DIR}/${APP_NAME}.app" /Applications/
+# xattr -dr com.apple.quarantine "$TARGET" || sudo xattr -dr com.apple.quarantine "$TARGET"
+echo "▶ Installing to /Applications..."
+
+if [ -e "$TARGET" ]; then
+  sudo rm -rf "$TARGET"
+fi
+
+sudo cp -R "${DIST_DIR}/${APP_NAME}.app" /Applications/
+sudo xattr -dr com.apple.quarantine "$TARGET"
 # <2:end>
 echo "✅ Installed successfully!"
 echo "▶ Open Applications → ${APP_NAME}"
