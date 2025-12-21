@@ -15,7 +15,7 @@
 
       const l = lang.toLowerCase();
 
-      let target = "index.html";
+      let target = "en.html";
 
       // Simplified Chinese
       if (
@@ -23,7 +23,7 @@
         l === "zh-sg" ||
         l.startsWith("zh-hans")
       ) {
-        target = "index.zh-cn.html";
+        target = "cn.html";
       }
 
       // Traditional Chinese
@@ -33,7 +33,7 @@
         l === "zh-mo" ||
         l.startsWith("zh-hant")
       ) {
-        target = "index.zh-tw.html";
+        target = "tw.html";
       }
 
       if (!location.pathname.endsWith(target)) {
