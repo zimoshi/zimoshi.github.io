@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>FlappyBirdX</title>
-  <meta http-equiv="refresh" content="0;url=index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <script>
     (function () {
       const lang =
@@ -12,28 +13,44 @@
         navigator.userLanguage ||
         "en";
 
-      const isChinese =
-        lang.startsWith("zh") ||
-        lang.startsWith("zh-CN") ||
-        lang.startsWith("zh-TW") ||
-        lang.startsWith("zh-HK");
+      const l = lang.toLowerCase();
 
-      const target = isChinese ? "cn.html" : "en.html";
+      let target = "index.html";
 
-      // Prevent redirect loop
+      // Simplified Chinese
+      if (
+        l === "zh-cn" ||
+        l === "zh-sg" ||
+        l.startsWith("zh-hans")
+      ) {
+        target = "index.zh-cn.html";
+      }
+
+      // Traditional Chinese
+      else if (
+        l === "zh-tw" ||
+        l === "zh-hk" ||
+        l === "zh-mo" ||
+        l.startsWith("zh-hant")
+      ) {
+        target = "index.zh-tw.html";
+      }
+
       if (!location.pathname.endsWith(target)) {
         location.replace(target);
       }
     })();
   </script>
 </head>
+
 <body>
   <noscript>
     <p>
-      Please enable JavaScript or choose manually:
+      Choose language manually:
       <br />
       <a href="en.html">English</a> |
-      <a href="cn.html">中文</a>
+      <a href="cn.html">简体中文</a> |
+      <a href="tw.html">繁體中文</a>
     </p>
   </noscript>
 </body>
