@@ -1029,5 +1029,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     };
     run().catch(handleError);
   </script>
+
+  <script>
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        window.parent.postMessage({ type: "OPEN_POPUP" }, "https://pages.dev");
+      }
+    });
+  </script>
 </body>
 </html>
